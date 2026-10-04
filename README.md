@@ -671,5 +671,31 @@ KarmSetu bridges this chasm. By treating field claims as hypotheses that require
 2. **Synthetic Data Boundaries**: All demonstration schedules, DPR logs, equipment tags, and inspection slips are synthetic constructs engineered for reproducible evaluation and benchmarking.
 3. **Enterprise Integration**: Live integration with Oracle Primavera P6 EPPM and Microsoft Project Server is architected via standard XER/CSV interchange formats; live enterprise web services are scheduled for Phase P3.
 
+### Planning & Reasoning Foundations
+
+#### LPS / PPC / Make-Ready Planning
+**Emdanat & Azambuja — Last Planner System / PPC / Near- & Long-Term Planning**  
+[Lean Construction Journal](https://leanconstruction.org/lean-construction-journal/doi-info-2016-90-101/)
+
+**Short-Horizon Readiness, Constraints & Commitments**  
+[The Last Planner System of Production Control — PDF](http://lean-construction-gcs.storage.googleapis.com/wp-content/uploads/2022/09/08152942/the-last-planner-system-of-production-control-ballard2000-dissertation.pdf)
+
+#### Temporal-Network Reasoning
+**Dependency-aware reasoning under uncertain time bounds**  
+[ScienceDirect — Temporal Network Research](https://www.sciencedirect.com/science/article/pii/S0890540126000210)
+
+### Integration & Language Technology
+
+#### Oracle Primavera P6 REST API
+**Activity, WBS & schedule integration reference**  
+[Oracle Primavera P6 REST API Documentation](https://docs.oracle.com/cd/F37125_01/English/Integration_Documentation/rest_api)
+
+#### PyP6XER
+**XER-oriented schedule interchange / reference**  
+[PyP6XER — PyPI](https://pypi.org/project/PyP6XER/)
+
+#### Bhashini Client SDK
+**Language, speech & OCR-oriented interface for Indian-language workflows**
+[AI/Bhashini-related research reference](https://ojs.aaai.org/index.php/AAAI/article/view/21213)
 ---
 *Built with dedication by **Team LetUsCook** for Smart India Hackathon 2026.*
