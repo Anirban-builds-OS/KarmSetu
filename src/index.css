@@ -700,3 +700,324 @@ body {
 @media (min-width: 769px) {
   .show-mobile-only { display: none !important; }
 }
+
+/* ============================================================
+   LIGHT MODE OVERRIDES
+   Activated when html.light is set by the theme toggle
+   ============================================================ */
+
+html.light {
+  color-scheme: light;
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+html.light body {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+/* ---- Sidebar ---- */
+html.light .sidebar {
+  background: #ffffff;
+  color: #475569;
+  border-right: 1px solid #e2e8f0;
+}
+
+html.light .sidebar-nav-item {
+  color: #64748b;
+}
+
+html.light .sidebar-nav-item:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+html.light .sidebar-nav-item.active {
+  background: rgba(26, 116, 255, 0.08);
+  color: #1a74ff;
+}
+
+html.light .sidebar .nav-badge {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* ---- Topbar ---- */
+html.light .topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ---- Cards & Surfaces ---- */
+html.light .card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+html.light .card-header {
+  border-bottom-color: #e2e8f0;
+}
+
+html.light .card-header h3 {
+  color: #1e293b;
+}
+
+html.light .kpi-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+html.light .board-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+/* ---- Tables ---- */
+html.light .data-table th {
+  color: #64748b;
+  border-bottom-color: #e2e8f0;
+  background: #f8fafc;
+}
+
+html.light .data-table td {
+  border-bottom-color: #f1f5f9;
+  color: #334155;
+}
+
+html.light .data-table tr:hover td {
+  background: #f8fafc;
+}
+
+/* ---- Badges (preserve colors, soften backgrounds) ---- */
+html.light .badge-success { background: #ecfdf5; color: #047857; }
+html.light .badge-warning { background: #fffbeb; color: #b45309; }
+html.light .badge-danger  { background: #fef2f2; color: #b91c1c; }
+html.light .badge-info    { background: #eff6ff; color: #1d4ed8; }
+html.light .badge-neutral { background: #f1f5f9; color: #475569; }
+
+/* ---- Buttons ---- */
+html.light .btn-secondary {
+  background: #ffffff;
+  color: #334155;
+  border-color: #e2e8f0;
+}
+html.light .btn-secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+html.light .btn-ghost {
+  color: #64748b;
+}
+html.light .btn-ghost:hover:not(:disabled) {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+/* ---- Inputs ---- */
+html.light .input {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #1e293b;
+}
+html.light .input:focus {
+  border-color: #1a74ff;
+  box-shadow: 0 0 0 3px rgba(26, 116, 255, 0.08);
+}
+html.light .input::placeholder {
+  color: #94a3b8;
+}
+
+/* ---- Drop Zone ---- */
+html.light .drop-zone {
+  border-color: #cbd5e1;
+  background: #fafbfc;
+}
+html.light .drop-zone:hover,
+html.light .drop-zone.dragover {
+  border-color: #1a74ff;
+  background: #eff6ff;
+}
+
+/* ---- Confidence & Feature Bars ---- */
+html.light .confidence-bar {
+  background: #e2e8f0;
+}
+html.light .feature-bar {
+  background: #bdd8ff;
+}
+
+/* ---- Gantt ---- */
+html.light .gantt-baseline {
+  background: #cbd5e1;
+}
+
+/* ---- Trace ---- */
+html.light .trace-line {
+  background: #cbd5e1;
+}
+html.light .trace-dot {
+  border-color: #ffffff;
+}
+
+/* ---- Tabs ---- */
+html.light .tab-group {
+  border-bottom-color: #e2e8f0;
+}
+html.light .tab-item {
+  color: #64748b;
+}
+html.light .tab-item:hover {
+  color: #1e293b;
+}
+html.light .tab-item.active {
+  color: #1a74ff;
+  border-bottom-color: #1a74ff;
+}
+
+/* ---- Toast ---- */
+html.light .toast {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* ---- Bottom Sheet ---- */
+html.light .bottom-sheet {
+  background: #ffffff;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+html.light .bottom-sheet-handle {
+  background: #cbd5e1;
+}
+
+/* ---- Empty State ---- */
+html.light .empty-state {
+  color: #94a3b8;
+}
+
+/* ---- Step Indicator ---- */
+html.light .step-dot.pending {
+  background: #e2e8f0;
+  color: #94a3b8;
+}
+html.light .step-connector {
+  background: #e2e8f0;
+}
+
+/* ---- Synthetic Banner ---- */
+html.light .synthetic-banner {
+  background: repeating-linear-gradient(
+    -45deg,
+    #fef3c7,
+    #fef3c7 10px,
+    #fffbeb 10px,
+    #fffbeb 20px
+  );
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+/* ---- Scrollbar ---- */
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ---- Page Header ---- */
+html.light .page-header h1 {
+  color: #1e293b;
+}
+html.light .page-header p {
+  color: #64748b;
+}
+
+/* ---- Generic overrides for Tailwind dark-hardcoded classes ---- */
+
+/* Navy backgrounds become light surfaces */
+html.light .bg-navy-950 { background-color: #f8fafc !important; }
+html.light .bg-navy-900 { background-color: #ffffff !important; }
+html.light .bg-navy-900\/90 { background-color: rgba(255,255,255,0.95) !important; }
+html.light .bg-navy-900\/80 { background-color: rgba(255,255,255,0.9) !important; }
+html.light .bg-navy-800 { background-color: #f1f5f9 !important; }
+html.light .bg-navy-800\/80 { background-color: rgba(241,245,249,0.9) !important; }
+html.light .bg-navy-800\/40 { background-color: rgba(241,245,249,0.5) !important; }
+
+/* Borders */
+html.light .border-navy-700 { border-color: #e2e8f0 !important; }
+html.light .border-navy-700\/80 { border-color: rgba(226,232,240,0.9) !important; }
+html.light .border-navy-700\/60 { border-color: rgba(226,232,240,0.7) !important; }
+html.light .border-navy-800 { border-color: #e2e8f0 !important; }
+html.light .border-white\/10 { border-color: rgba(0,0,0,0.06) !important; }
+
+/* Text */
+html.light .text-white { color: #1e293b !important; }
+html.light .text-slate-100 { color: #334155 !important; }
+html.light .text-slate-200 { color: #475569 !important; }
+html.light .text-slate-300 { color: #64748b !important; }
+html.light .text-slate-400 { color: #94a3b8 !important; }
+html.light .text-slate-500 { color: #94a3b8 !important; }
+
+/* Slate backgrounds */
+html.light .bg-slate-800 { background-color: #e2e8f0 !important; }
+html.light .bg-slate-900 { background-color: #f1f5f9 !important; }
+html.light .bg-slate-900\/60 { background-color: rgba(241,245,249,0.7) !important; }
+
+/* Gradient overrides */
+html.light .from-navy-950 { --tw-gradient-from: #f8fafc !important; }
+html.light .via-slate-900 { --tw-gradient-via: #ffffff !important; }
+html.light .to-navy-950 { --tw-gradient-to: #f8fafc !important; }
+html.light .from-navy-900 { --tw-gradient-from: #ffffff !important; }
+html.light .via-navy-800 { --tw-gradient-via: #f8fafc !important; }
+html.light .to-navy-800 { --tw-gradient-to: #f1f5f9 !important; }
+html.light .to-slate-900 { --tw-gradient-to: #f8fafc !important; }
+
+/* Shadow adjustments */
+html.light .shadow-xl { box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04) !important; }
+html.light .shadow-2xl { box-shadow: 0 8px 24px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04) !important; }
+
+/* Keep accent colors vibrant but ensure readable contrast */
+html.light .text-accent-300 { color: #1a74ff !important; }
+html.light .text-accent-400 { color: #0058d4 !important; }
+html.light .bg-accent-500\/20 { background-color: rgba(26,116,255,0.08) !important; }
+html.light .bg-accent-600\/20 { background-color: rgba(0,88,212,0.08) !important; }
+html.light .bg-accent-600\/30 { background-color: rgba(0,88,212,0.1) !important; }
+html.light .border-accent-500\/30 { border-color: rgba(26,116,255,0.2) !important; }
+html.light .border-accent-500\/40 { border-color: rgba(26,116,255,0.25) !important; }
+
+/* Sidebar hover in light */
+html.light .hover\:bg-slate-800:hover { background-color: #f1f5f9 !important; }
+html.light .hover\:text-white:hover { color: #1e293b !important; }
+html.light .hover\:bg-navy-800:hover { background-color: #f1f5f9 !important; }
+html.light .hover\:border-navy-700:hover { border-color: #cbd5e1 !important; }
+html.light .hover\:border-accent-500\/50:hover { border-color: rgba(26,116,255,0.35) !important; }
+
+/* Navy-950 overlays & popovers */
+html.light .bg-navy-950\/70 { background-color: rgba(248,250,252,0.85) !important; }
+
+/* Ring */
+html.light .ring-accent-500\/40 { --tw-ring-color: rgba(26,116,255,0.15) !important; }
+html.light .ring-accent-500\/30 { --tw-ring-color: rgba(26,116,255,0.12) !important; }
+
+/* Backdrop */
+html.light .backdrop-blur-md { backdrop-filter: blur(12px); }
+
+/* Dividers */
+html.light .divide-navy-800\/60 > :not(:last-child) { border-color: rgba(226,232,240,0.6) !important; }
+
+/* Placeholder text */
+html.light .placeholder-slate-500::placeholder { color: #94a3b8 !important; }
+
+/* KBD */
+html.light kbd {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+/* Smooth transition for theme change */
+html.light * {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease, box-shadow 0.2s ease;
+}

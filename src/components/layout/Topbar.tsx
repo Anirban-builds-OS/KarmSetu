@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { 
   Menu, Bell, Search, Shield, ChevronDown, Check,
   Calendar, RefreshCw, Sparkles, UserCheck, AlertTriangle,
-  PanelLeftClose, PanelLeftOpen
+  PanelLeftClose, PanelLeftOpen, Sun, Moon
 } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { useAppStore } from '../../store/appStore';
@@ -16,7 +16,7 @@ import type { UserRole } from '../../types';
 
 export function Topbar() {
   const { user, loginAs, switchRole } = useAuthStore();
-  const { toggleSidebar, sidebarCollapsed, toggleSidebarCollapsed, addToast, demoMode } = useAppStore();
+  const { toggleSidebar, sidebarCollapsed, toggleSidebarCollapsed, addToast, demoMode, theme, toggleTheme } = useAppStore();
   const [roleMenuOpen, setRoleMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
@@ -102,6 +102,30 @@ export function Topbar() {
           <Sparkles size={13} className="text-accent-400" />
           <span>Pipeline Demo</span>
         </Link>
+
+        {/* Theme Toggle Button */}
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className="relative p-2 rounded-lg transition-all duration-300 focus:outline-none group"
+          style={{
+            background: theme === 'dark'
+              ? 'linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9))'
+              : 'linear-gradient(135deg, rgba(251,191,36,0.15), rgba(245,158,11,0.1))',
+            border: theme === 'dark'
+              ? '1px solid rgba(100,116,139,0.3)'
+              : '1px solid rgba(245,158,11,0.3)',
+          }}
+          title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          id="theme-toggle-btn"
+        >
+          {theme === 'dark' ? (
+            <Sun size={16} className="text-amber-400 group-hover:text-amber-300 transition-colors group-hover:rotate-45 duration-500" />
+          ) : (
+            <Moon size={16} className="text-indigo-500 group-hover:text-indigo-400 transition-colors group-hover:-rotate-12 duration-500" />
+          )}
+        </button>
 
         {/* Integrity Flags / Alerts Bell */}
         <div className="relative">

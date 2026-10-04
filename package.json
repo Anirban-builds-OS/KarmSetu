@@ -1,12 +1,13 @@
 {
-  "name": "ps122",
+  "name": "karmsetu",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "type-check": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.1",

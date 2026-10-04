@@ -82,28 +82,6 @@ KarmSetu/
 
 ---
 
-## 📑 Report at a Glance
-
-| Section | What it covers |
-| :--- | :--- |
-| [1. Executive Summary](#1-executive-summary) | The problem, solution, positioning, and differentiating principle. |
-| [2. Problem Understanding](#2-problem-understanding) | Why field-to-schedule actuals are difficult and what SIH PS 26122 asks for. |
-| [3. Proposed Solution](#3-proposed-solution) | Capture → Connect → Prove → Act, end-to-end user workflows, and non-goals. |
-| [4. Core Innovation](#4-core-innovation) | Proof-Bounded Actuals, Scope Graph, Evidence Graph, Blocking Web, and Execution Memory. |
-| [5. System Architecture](#5-system-architecture) | End-to-end components, data flow, trust boundaries, and logical layout. |
-| [6. Technical Stack](#6-technical-stack) | Prototype-ready tools, role in the prototype, and rationale. |
-| [7. Data Model and Decision Logic](#7-data-model-and-decision-logic) | Structured claims, evidence grades, temporal intervals, and decision lanes. |
-| [8. 36-Hour Feasibility Plan](#8-36-hour-feasibility-plan) | MVP scope, build schedule, and deliberate exclusions. |
-| [9. Demo Plan](#9-demo-plan) | Happy path, ambiguous case, and unmatched case demonstration scripts. |
-| [10. Evaluation and Risks](#10-evaluation-testing-and-risk-controls) | Metrics, False Auto-Update Rate, validation approach, and risk matrix. |
-| [11. User Value and Practicality](#11-practicality-and-user-value) | Benefits for supervisors, planners, leadership, and the Report-to-Receive loop. |
-| [12. Competitor Landscape](#12-competitor-and-adjacent-system-landscape) | Detailed comparison against Plan2Progress, PragatiSetu, and adjacent systems. |
-| [13. Implementation Roadmap](#13-implementation-roadmap) | P0 prototype through P4 enterprise analytics. |
-| [14. SIH Judging Criteria](#14-alignment-with-sih-judging-criteria) | Novelty, feasibility, practicability, technology fit, and FAQ responses. |
-| [15. Success Criteria & Deliverables](#15-success-criteria-and-deliverables) | P0 deliverables and strict Definition of Done. |
-| [16. Conclusion](#16-conclusion) | Summary of contribution and closing thesis. |
-| [17. References and Scope Notes](#17-references-and-scope-notes) | Public citations, repository links, and claim boundaries. |
-
 ---
 
 ## 1. Executive Summary
@@ -238,13 +216,6 @@ sequenceDiagram
    - Bounded completion interval: `[2026-08-13 18:00, 2026-08-14 11:00]`. Evidence Grade: **B+**.
 6. **Decision**:
    - Predecessor dependency satisfied. Routed to Planner with one-click verification.
-
-### 3.4 Explicit Non-Goals for the P0 Prototype
-- ❌ Do **not** replace Primavera P6, MS Project, or enterprise ERP systems.
-- ❌ Do **not** autonomously overwrite a master enterprise schedule without deterministic policy checks and human verification.
-- ❌ Do **not** require heavy, error-prone OCR or live speech-to-text models to validate core matching and evidence logic.
-- ❌ Do **not** make unverified real-world accuracy claims before testing on independent, held-out validation sets.
-
 ---
 
 ## 4. Core Innovation and Differentiation
@@ -514,44 +485,13 @@ $$\text{Composite Score} = w_1 \cdot S_{\text{lexical}} + w_2 \cdot S_{\text{sem
 
 ---
 
-## 8. 36-Hour Feasibility Plan
-
-### 8.1 P0 Scope Boundaries
-- **Synthetic Project**: 150 Level 6 activities across Civil, Piping, Electrical, and Mechanical disciplines; 400 scope objects; 30 days of simulated progress history.
-- **Input Formats**:
-  1. Free-text DPR site notes and WhatsApp chat logs.
-  2. Structured discipline daily spreadsheets (CSV/XLSX).
-  3. Master schedule baseline in CSV format (Activity ID, WBS, Description, Dates, Dependencies).
-- **Hard Negative Test Cases**: Homonymous equipment tags, duplicate line numbers, out-of-order execution, and completely unmatched activities.
-
-### 8.2 Build Schedule
-
-```
-  0h ─────── 4h ─────── 9h ─────── 14h ────── 19h ────── 24h ────── 28h ────── 32h ────── 36h
-  ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
-  │Foundation│ Schedule │  Field   │ Matching │ Evidence │  Review  │  Impact  │Hardening │
-  │ & Schema │ & Scope  │ Ingestion│  Engine  │ & Proof  │    UI    │  Views   │  & Demo  │
-  └──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
-```
-
-| Timeframe | Workstream | Key Deliverables |
-| :--- | :--- | :--- |
-| **Hours 0–4** | **Foundation** | Repository setup, typed contracts, Tailwind design tokens, Pydantic schemas, UI shell. |
-| **Hours 4–9** | **Schedule & Scope** | CSV schedule importer, WBS tree visualizer, Scope Graph builder, alias dictionary. |
-| **Hours 9–14** | **Field Ingestion** | DPR text parser, discipline CSV importer, normalizer, and claim extraction engine. |
-| **Hours 14–19**| **Matching Engine** | RapidFuzz + TF-IDF hybrid retrieval, feature weighting, explicit `NULL` candidate. |
-| **Hours 19–24**| **Evidence & Proof** | Multi-source corroboration graph, interval derivation, conflict detector, policy rules. |
-| **Hours 24–28**| **Review UI** | Interactive Review Queue, "Why this match?" drawer, 1-tap ask-back, audit commit. |
-| **Hours 28–32**| **Impact Views** | Real-time L5/L6 Gantt updater, 3-Day Lookahead board, blocker view, CSV export. |
-| **Hours 32–36**| **Hardening** | End-to-end sandbox walkthroughs, seeded demo dataset, error boundaries, demo rehearsal. |
-
 ---
 
-## 9. Demo Plan
+## 8. Demo Plan
 
 The demonstration is organized around three distinct operational scenarios that prove the system's ability to act safely under real site conditions:
 
-### 9.1 Scenario 1: The Happy Path (Corroborated Match)
+### 8.1 Scenario 1: The Happy Path (Corroborated Match)
 1. **Input**:
    ```text
    "Spool P204-07 erection completed. Welding for Section B started."
@@ -566,7 +506,7 @@ The demonstration is organized around three distinct operational scenarios that 
    - Planner approves; L5/L6 Gantt view updates instantly with verifiable green status badge.
    - Demonstrates bi-temporal audit log showing SHA-256 hash chaining.
 
-### 9.2 Scenario 2: The Ambiguous Case (Safe Non-Update & Ask-Back)
+### 8.2 Scenario 2: The Ambiguous Case (Safe Non-Update & Ask-Back)
 1. **Input**:
    ```text
    "Pump installation completed."
@@ -578,7 +518,7 @@ The demonstration is organized around three distinct operational scenarios that 
      > *"Which pump was installed? [10-P-201] [10-P-204A] [10-P-204B]"*
    - Highlights the safety principle: **Ambiguity is treated as a first-class decision, not hidden behind an unearned confidence score.**
 
-### 9.3 Scenario 3: The Unmatched Case (Schedule-Gap Detection)
+### 8.3 Scenario 3: The Unmatched Case (Schedule-Gap Detection)
 1. **Input**:
    ```text
    "Constructed 250m temporary gravel access road along northern perimeter."
@@ -589,14 +529,11 @@ The demonstration is organized around three distinct operational scenarios that 
    - System registers an **Unmatched Field Claim** and creates a **Schedule-Gap Notice**.
    - Alerts the PMO that physical work is consuming resources without an assigned WBS code.
 
-### 9.4 Suggested Demo Narration Pitch
-> *"Traditional tools can record an actual date once an engineer manually investigates and enters it. KarmSetu automates the difficult, high-risk step before that: identifying what the report refers to, checking what evidence corroborates it, establishing how precise the date can safely be, and deciding whether the update is defensible. If KarmSetu cannot prove the match, it stops, protects the schedule, and asks."*
-
 ---
 
-## 10. Evaluation, Testing, and Risk Controls
+## 9. Evaluation, Testing, and Risk Controls
 
-### 10.1 Evaluation Metrics
+### 9.1 Evaluation Metrics
 
 | Area | Key Metric | Why It Matters |
 | :--- | :--- | :--- |
@@ -607,12 +544,12 @@ The demonstration is organized around three distinct operational scenarios that 
 | **Human Efficiency** | **Planner Review Velocity** | Reduction in hours spent by planners manually reconciling spreadsheets and calling site supervisors. |
 | **System Integrity** | **Audit Completeness** | 100% of committed updates must trace back to raw source inputs, actor IDs, and cryptographic hashes. |
 
-### 10.2 Validation Approach
+### 9.2 Validation Approach
 - **Pre-Seeded Synthetic Benchmark**: 100 labeled test claims containing standard field reports, spelling errors, jargon aliases, ambiguous equipment names, and hard negatives.
 - **Held-Out Test Set**: Evaluation performed on test scenarios never seen during prompt engineering or alias dictionary tuning.
 - **Independent Dual-Review**: Benchmarking against gold-standard manual planner reconciliations.
 
-### 10.3 Key Risks & Mitigations
+### 9.3 Key Risks & Mitigations
 
 | Identified Risk | Potential Impact | KarmSetu Mitigation Mechanism |
 | :--- | :--- | :--- |
@@ -625,7 +562,7 @@ The demonstration is organized around three distinct operational scenarios that 
 
 ---
 
-## 11. Practicality and User Value
+## 10. Practicality and User Value
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -658,36 +595,8 @@ The demonstration is organized around three distinct operational scenarios that 
 
 ---
 
-## 12. Competitor and Adjacent-System Landscape
 
-A comparative review against public GitHub repositories identified under SIH 2026 Problem Statement 26122:
-
-### 12.1 Identified Competitor Projects
-1. **Plan2Progress** ([GitHub Repository](https://github.com/JanmejaiPratapTonk-123/SIH-26122)):
-   - Focuses on heterogeneous report ingestion, NLP extraction, fuzzy/semantic matching, confidence scores, and basic human review.
-   - *Key takeaway for KarmSetu*: Generic fuzzy matching, confidence scores, and human review queues are baseline requirements, not unique differentiators.
-2. **PragatiSetu** ([GitHub Repository](https://github.com/anushkasingh-code/PragatiSetu)):
-   - Documents PDF/Excel ingestion, LLM extraction, vector embeddings, top-k candidate retrieval, unmatched activity detection, and conflict indicators.
-   - *Key takeaway for KarmSetu*: KarmSetu must make its **deep evidence synthesis**, **physical Scope Graph**, and **bounded temporal interval engine** visibly distinctive during the demonstration.
-
-### 12.2 Architectural Comparison Matrix
-
-| Feature / Dimension | Plan2Progress *(Public Design)* | PragatiSetu *(Public Design)* | **KarmSetu (Our System)** |
-| :--- | :---: | :---: | :---: |
-| **Core Philosophy** | LLM-based parsing & text matching | NLP + Vector search pipeline | **Evidence-First Verification & Governance** |
-| **Ingestion Scope** | DPR text & discipline spreadsheets | Multi-format files & basic parsing | **DPR text, CSV sheets, PTW & Crane logs** |
-| **Physical Scope Resolution** | Direct text-to-schedule matching | Direct vector embedding search | **Dedicated Scope Graph (Asset Hierarchy)** |
-| **Matching Engine** | Lexical + Semantic similarity | Semantic embeddings + Top-k rerank | **Multi-Signal Hybrid + Mandatory `NULL`** |
-| **Unmatched Handling** | Basic fallback | Unmatched activity flag | **Schedule-Gap Notice & Resource Tracker** |
-| **Evidence Corroboration** | Basic audit flow | Contextual validation checks | **Multi-Source Evidence Graph (Permit/NDT/Crane)** |
-| **Temporal Modeling** | Point-in-time dates | Point-in-time dates | **Proof-Bounded Intervals & Evidence Grades** |
-| **Causality & Dependencies**| Standard CPM logic | Bottleneck alerts | **Blocking Web (Physical/Operational Constraints)**|
-| **Audit Ledger** | Database change logs | Standard database audit records | **Bi-Temporal Chained SHA-256 Cryptographic Ledger**|
-| **Field Engagement** | Passive data intake | Passive data intake | **Report-to-Receive Loop (3-Day Lookahead Feedback)**|
-
----
-
-## 13. Implementation Roadmap
+## 11. Implementation Roadmap
 
 ```
   ┌─────────────────────────┐
@@ -721,28 +630,11 @@ A comparative review against public GitHub repositories identified under SIH 202
 
 ---
 
-## 14. Alignment with SIH Judging Criteria
 
-| SIH Judging Criterion | How KarmSetu Addresses It | What the Judges Will Experience |
-| :--- | :--- | :--- |
-| **1. Novelty & Innovation** | Moves beyond conversational AI and basic fuzzy matching to introduce an **Evidence-First Verification Layer** with Proof-Bounded Actuals, Scope Graphs, and the Blocking Web. | Watch a report resolve through physical object hierarchy, bind to multi-source evidence, derive an interval, and safely halt on ambiguity. |
-| **2. Feasibility & Scope** | Deliberately scopes the 36-hour build to a complete, robust P0 loop without getting bogged down in brittle OCR models or proprietary API keys. | Smooth, sub-second response times across synthetic datasets with zero crash states or unhandled exceptions. |
-| **3. Practicability & Impact**| Solves the real-world friction of infrastructure reporting by complementing existing enterprise systems (P6/MSP) rather than attempting to replace them. | Experience the supervisor's **Report-to-Receive** workflow and the planner's high-efficiency **Review Queue**. |
-| **4. Technical Excellence**| Modern, typed architecture: React 19 + TypeScript frontend, Pydantic validation, Zustand state management, and SHA-256 tamper-evident audit chaining. | Clean codebase, comprehensive API schemas, transparent scoring formulas, and verifiable cryptographic ledgers. |
 
-### Anticipated Judge Questions & Technical Answers
-- **Q: "Isn't this just a chatbot wrapper that updates Primavera?"**
-  - *Answer*: Absolutely not. The LLM is restricted to raw claim extraction. All physical object resolution, schedule linking, temporal proofing, conflict detection, and policy decisions are performed by deterministic, explainable rule engines. The LLM cannot write to the schedule.
-- **Q: "Why not simply use semantic vector search?"**
-  - *Answer*: Semantic embeddings fail on alphanumeric asset tags (`10-P-204A` vs `10-P-204B`), cannot verify whether a physical predecessor is complete, and cannot reconcile conflicting dates. Embeddings are only one weighted input in our multi-feature hybrid linker.
-- **Q: "What happens when field data contradicts the schedule?"**
-  - *Answer*: KarmSetu flags the conflict, calculates the temporal discrepancy, and halts automated updates, immediately routing the dossier to the human planner review queue.
+## 12. Success Criteria and Deliverables
 
----
-
-## 15. Success Criteria and Deliverables
-
-### 15.1 P0 Deliverables Checklist
+### 12.1 P0 Deliverables Checklist
 - [x] **Synthetic L5/L6 Infrastructure Schedule**: 150+ activities, complete WBS hierarchy, dependencies, and baseline dates.
 - [x] **Multi-Format Ingestion Engine**: DPR narrative text parser and tabular CSV discipline spreadsheet importer.
 - [x] **Scope Graph Visualizer**: Physical scope hierarchy linking areas, systems, lines, and tagged assets.
@@ -753,7 +645,7 @@ A comparative review against public GitHub repositories identified under SIH 202
 - [x] **Bi-Temporal Audit Ledger**: SHA-256 chained transaction log recording Event-Time vs. Known-At Time.
 - [x] **Schedule Writeback Pipeline**: Clean CSV export of validated actual start and finish dates.
 
-### 15.2 Definition of Done (DoD)
+### 12.2 Definition of Done (DoD)
 1. An incoming DPR narrative or spreadsheet row processes end-to-end without unhandled errors or manual database edits.
 2. A valid, corroborated claim updates schedule actuals with an auditable explanation.
 3. An ambiguous claim triggers an Ask-Back prompt rather than an erroneous auto-commit.
@@ -762,7 +654,7 @@ A comparative review against public GitHub repositories identified under SIH 202
 
 ---
 
-## 16. Conclusion
+## 13. Conclusion
 
 Infrastructure project delays rarely occur because project managers lack scheduling software; they occur because **the schedule lives in an air-conditioned site office, while reality unfolds in dust, noise, and fragmented field logs**.
 
@@ -772,16 +664,38 @@ KarmSetu bridges this chasm. By treating field claims as hypotheses that require
 
 ---
 
-## 17. References and Scope Notes
-
-### Public Competitor Repositories (SIH 2026 PS 26122)
-- **Plan2Progress**: [https://github.com/JanmejaiPratapTonk-123/SIH-26122](https://github.com/JanmejaiPratapTonk-123/SIH-26122)
-- **PragatiSetu**: [https://github.com/anushkasingh-code/PragatiSetu](https://github.com/anushkasingh-code/PragatiSetu)
+## 14. References and Scope Notes
 
 ### Technical Scope Notes
 1. **Problem Statement Alignment**: Designed specifically for Smart India Hackathon (SIH) 2026 Problem Statement ID **26122**: *"Intelligent Data Capture & Schedule-Linking Layer for Infrastructure Project Management: Real-Time Actual Progress Tracking (Planning-to-Execution Bridge)"*.
 2. **Synthetic Data Boundaries**: All demonstration schedules, DPR logs, equipment tags, and inspection slips are synthetic constructs engineered for reproducible evaluation and benchmarking.
 3. **Enterprise Integration**: Live integration with Oracle Primavera P6 EPPM and Microsoft Project Server is architected via standard XER/CSV interchange formats; live enterprise web services are scheduled for Phase P3.
 
+### Planning & Reasoning Foundations
+
+#### LPS / PPC / Make-Ready Planning
+**Emdanat & Azambuja — Last Planner System / PPC / Near- & Long-Term Planning**  
+[Lean Construction Journal](https://leanconstruction.org/lean-construction-journal/doi-info-2016-90-101/)
+
+**Short-Horizon Readiness, Constraints & Commitments**  
+[The Last Planner System of Production Control — PDF](http://lean-construction-gcs.storage.googleapis.com/wp-content/uploads/2022/09/08152942/the-last-planner-system-of-production-control-ballard2000-dissertation.pdf)
+
+#### Temporal-Network Reasoning
+**Dependency-aware reasoning under uncertain time bounds**  
+[ScienceDirect — Temporal Network Research](https://www.sciencedirect.com/science/article/pii/S0890540126000210)
+
+### Integration & Language Technology
+
+#### Oracle Primavera P6 REST API
+**Activity, WBS & schedule integration reference**  
+[Oracle Primavera P6 REST API Documentation](https://docs.oracle.com/cd/F37125_01/English/Integration_Documentation/rest_api)
+
+#### PyP6XER
+**XER-oriented schedule interchange / reference**  
+[PyP6XER — PyPI](https://pypi.org/project/PyP6XER/)
+
+#### Bhashini Client SDK
+**Language, speech & OCR-oriented interface for Indian-language workflows**
+[AI/Bhashini-related research reference](https://ojs.aaai.org/index.php/AAAI/article/view/21213)
 ---
 *Built with dedication by **Team LetUsCook** for Smart India Hackathon 2026.*

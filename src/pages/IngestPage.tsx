@@ -10,7 +10,8 @@ import {
 } from 'lucide-react';
 import { DEMO_SOURCES } from '../mocks/data';
 import { useAppStore } from '../store/appStore';
-import type { SourceDocument } from '../types';
+import { generateId } from '../lib/security';
+import type { SourceDocument, SourceType } from '../types';
 
 export function IngestPage() {
   const { addToast } = useAppStore();
@@ -18,11 +19,11 @@ export function IngestPage() {
   const [isUploading, setIsUploading] = useState(false);
   const [currentStep, setCurrentStep] = useState<number>(0);
 
-  const sampleUploads = [
-    { name: 'DPR_Piping_Bay3_2026-09-29.pdf', type: 'PDF', size: '2.4 MB', claims: 8 },
-    { name: 'Contractor_Daily_Civil_Log.xlsx', type: 'XLSX', size: '1.1 MB', claims: 14 },
-    { name: 'Site_Foreman_WhatsApp_Export.txt', type: 'CHAT', size: '420 KB', claims: 6 },
-    { name: 'Primavera_P6_Export_DEPC.xer', type: 'XER', size: '5.8 MB', claims: 32 },
+  const sampleUploads: Array<{ name: string; type: SourceType; size: string; claims: number }> = [
+    { name: 'DPR_Piping_Bay3_2026-09-29.pdf',       type: 'PDF',  size: '2.4 MB', claims: 8  },
+    { name: 'Contractor_Daily_Civil_Log.xlsx',       type: 'XLSX', size: '1.1 MB', claims: 14 },
+    { name: 'Site_Foreman_WhatsApp_Export.txt',      type: 'CHAT', size: '420 KB', claims: 6  },
+    { name: 'Primavera_P6_Export_DEPC.xer',          type: 'XER',  size: '5.8 MB', claims: 32 },
   ];
 
   const handleSimulateUpload = (sample: typeof sampleUploads[0]) => {
@@ -38,14 +39,14 @@ export function IngestPage() {
       setIsUploading(false);
 
       const newDoc: SourceDocument = {
-        id: `src-${Date.now().toString().slice(-3)}`,
+        id: generateId('src'),
         projectId: 'prj-001',
         fileName: sample.name,
-        sourceType: sample.type as any,
+        sourceType: sample.type,
         reporterName: 'Site Engineer',
         reporterId: 'usr-001',
         discipline: 'Piping',
-        reportDate: new Date().toISOString().split('T')[0],
+        reportDate: new Date().toISOString().split('T')[0] ?? '',
         receivedTime: new Date().toISOString(),
         status: 'COMPLETED',
         observationCount: sample.claims,

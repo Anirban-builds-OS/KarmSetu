@@ -2,16 +2,31 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Security meta tags -->
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Identity -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>KARMSETU — Smart Infrastructure Project Execution &amp; Progress Intelligence</title>
     <meta name="description" content="KarmSetu bridges messy, multi-source field reporting directly into structured, defensible Primavera P6 schedule actuals for SIH 2026." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="application-name" content="KarmSetu" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-navy-950 text-slate-100 min-h-screen">
-    <div id="root"></div>
+  <body class="min-h-screen">
+    <div id="root" aria-label="KarmSetu Application"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

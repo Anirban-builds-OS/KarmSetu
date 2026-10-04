@@ -9,19 +9,21 @@ import { useAppStore } from '../../store/appStore';
 import { CheckCircle2, AlertTriangle, Info, XCircle, X } from 'lucide-react';
 
 export function AppLayout() {
-  const { toasts, removeToast } = useAppStore();
+  const { toasts, removeToast, theme } = useAppStore();
+
+  const isDark = theme === 'dark';
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-navy-950 text-slate-100 antialiased font-sans">
+    <div className={`flex h-screen w-screen overflow-hidden antialiased font-sans ${isDark ? 'bg-navy-950 text-slate-100' : 'bg-gray-50 text-gray-900'}`}>
       {/* Primary Sidebar */}
       <Sidebar />
 
       {/* Main Body */}
-      <div className="flex flex-col flex-1 min-w-0 h-full overflow-hidden bg-navy-950">
+      <div className={`flex flex-col flex-1 min-w-0 h-full overflow-hidden ${isDark ? 'bg-navy-950' : 'bg-gray-50'}`}>
         <Topbar />
 
         {/* Viewport Content */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-gradient-to-b from-navy-950 via-slate-900 to-navy-950">
+        <main className={`flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 ${isDark ? 'bg-gradient-to-b from-navy-950 via-slate-900 to-navy-950' : 'bg-gradient-to-b from-gray-50 via-white to-gray-50'}`}>
           <div className="max-w-7xl mx-auto w-full">
             <Outlet />
           </div>
